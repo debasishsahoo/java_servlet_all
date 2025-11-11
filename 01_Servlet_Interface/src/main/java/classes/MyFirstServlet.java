@@ -21,6 +21,7 @@ public class MyFirstServlet implements Servlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		this.config = config;
+		System.out.println(config);
 		System.out.println("Servlet initialized.");
 	}
 
@@ -34,11 +35,15 @@ public class MyFirstServlet implements Servlet {
 		}
 
 		// Business logic or data preparation
-		String message = "Hello," + name + "Welcome to JSP Integration Example!";
+		//What is My Response
+		String message = "Hello," + name + "  Welcome to JSP Integration Example!";
+		//Bind Response to Specific Request
 		req.setAttribute("message", message);
 
 		// Forward the request to JSP page
+		//Where i Send the response
 		RequestDispatcher rd = req.getRequestDispatcher("/message.jsp");
+		//How I send Response
 		rd.forward(req, res);
 
 	}
